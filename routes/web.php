@@ -17,4 +17,21 @@ Route::post('/log','LogController@store');
 Route::get('/logout','LogController@logout');
 
 Route::resource('/us','UserController');
-route::get('/admin','AdminController@admin');
+Route::get('/admin','AdminController@admin');
+Route::get('/admin/campanhas/{id}','AdminController@campanhas');
+Route::get('/admin/campanha/{id}','AdminController@campanha');
+
+Route::get('/admin/empr','AdminController@empr');
+Route::get('/admin/camp','AdminController@camp');
+
+Route::resource('/empresa','EmpresaController');
+Route::resource('/campanha','CampanhaController');
+Route::resource('/cliente','ClienteController');
+Route::resource('/pago','PagoController');
+Route::resource('/producto','ProductoController');
+Route::resource('/usuarioempresa','UsuarioEmpresaController');
+Route::resource('/venta','VentaController');
+
+
+
+

@@ -14,7 +14,7 @@ class UsuarioEmpresaController extends Controller
      */
     public function index()
     {
-        //
+
     }
 
     /**
@@ -24,7 +24,7 @@ class UsuarioEmpresaController extends Controller
      */
     public function create()
     {
-        //
+        
     }
 
     /**

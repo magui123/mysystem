@@ -3,6 +3,10 @@
 namespace App\Http\Controllers;
 
 use App\Empresa;
+use App\UsuarioEmpresa;
+
+use Auth;
+use Session;
 use Illuminate\Http\Request;
 
 class EmpresaController extends Controller
@@ -14,7 +18,8 @@ class EmpresaController extends Controller
      */
     public function index()
     {
-        //
+        $empresas = Auth::user()->empresas()->with('empresa')->get();
+        return view('empresa.index',compact('empresas'));
     }
 
     /**
@@ -24,7 +29,8 @@ class EmpresaController extends Controller
      */
     public function create()
     {
-        //
+        $empresas = Empresa::orderBy('nombre')->get();
+        return view('empresa.create',compact('empresas'));
     }
 
     /**
@@ -35,7 +41,38 @@ class EmpresaController extends Controller
      */
     public function store(Request $request)
     {
-        //
+       
+            if( $request->id_empresa ==0){
+                if( $request->nombre != ''){
+                $empresa = new Empresa;
+                $empresa->nombre =$request->nombre;
+                $empresa->save();
+                $UsuarioEmpresa = new UsuarioEmpresa;
+                $UsuarioEmpresa->id_usuario = Auth::user()->id;
+                $UsuarioEmpresa->id_empresa = $empresa->id;
+                $UsuarioEmpresa->save();
+                    Session::flash('success','Agregado correctamente');
+                }else{
+                    Session::flash('danger','Usted debe escribir el nombre de la nueva empresa');
+                }
+            }else{
+                
+                if( UsuarioEmpresa::where('id_usuario',Auth::user()->id)->where('id_empresa',$request->id_empresa)->get()->count() == 0 )
+                {
+                    $UsuarioEmpresa = new UsuarioEmpresa;
+                    $UsuarioEmpresa->id_usuario = Auth::user()->id;
+                    $UsuarioEmpresa->id_empresa = $request->id_empresa;
+                    $UsuarioEmpresa->save();
+                    Session::flash('success','Agregado correctamente');
+                }else{
+                    Session::flash('warning','Ya se encuentra registrado');
+                }
+            }
+       
+
+
+        $empresas = Empresa::orderBy('nombre')->get();
+        return view('empresa.create',compact('empresas')); 
     }
 
     /**

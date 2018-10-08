@@ -17,13 +17,15 @@
     <link href="{{asset('mysystemdesign/plugins/bootstrap/css/bootstrap.css')}}" rel="stylesheet">
 
     <!-- Waves Effect Css -->
-    <link href="{{asset('mysystemdesign/plugins/node-waves/waves.css')}}" rel="stylesheet" />
+    <!-- <link href="{{asset('mysystemdesign/plugins/node-waves/waves.css')}}" rel="stylesheet" /> -->
 
     <!-- Animation Css -->
     <link href="{{asset('mysystemdesign/plugins/animate-css/animate.css')}}" rel="stylesheet" />
 
+    <!-- Bootstrap Select Css -->
+    <link href="{{asset('mysystemdesign/plugins/bootstrap-select/css/bootstrap-select.css')}}" rel="stylesheet" />
     <!-- Morris Chart Css-->
-    <link href="{{asset('mysystemdesign/plugins/morrisjs/morris.css')}}" rel="stylesheet" />
+    <!-- <link href="{{asset('mysystemdesign/plugins/morrisjs/morris.css')}}" rel="stylesheet" /> -->
 
     <!-- Custom Css -->
     <link href="{{asset('mysystemdesign/css/style.css')}}" rel="stylesheet">
@@ -76,18 +78,20 @@
                 <ul class="nav navbar-nav navbar-right">
                     <!-- Call Search -->
                     
-                    <li class="dropdown">
-                        <a href="javascript:void(0);" class="dropdown-toggle" data-toggle="dropdown" role="button">
-                            Elije Campaña
+                    <li>
+                        <a href="javascript:void(0);">
+                            <strong id="nombreEmpresaHead">
+                            @if( Session::has('id_empresa'))
+                                {{Session::get('nombre_empresa')}}
+                            @endif  
+                            </strong>
+                            &nbsp;
+                            <strong id="nombreCampanhaHead">
+                            @if( Session::has('id_campanha'))
+                                {{Session::get('nombre_campanha')}}
+                            @endif
+                            </strong>
                         </a>
-                        <ul class="dropdown-menu">
-                            <li><a href="javascript:void(1);">Campaña #1</a></li>
-                            <li><a href="javascript:void(1);">Campaña #1</a></li>
-                            <li><a href="javascript:void(1);">Campaña #1</a></li>
-                            <li><a href="javascript:void(1);">Campaña #1</a></li>
-                            <li><a href="javascript:void(1);">Campaña #1</a></li>
-
-                        </ul>
                     </li>
                     <!-- #END# Call Search -->
                     <!-- Notifications -->
@@ -99,7 +103,6 @@
 
                      <li class="dropdown">
                         <a href="javascript:void(0);" class="dropdown-toggle" data-toggle="dropdown" role="button">
-                            
                             <i class="material-icons">account_circle</i>
                         </a>
                         <ul class="dropdown-menu">
@@ -126,26 +129,50 @@
                 <div class="info-container">
                     <div class="name" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false"> {{ Auth::user()->name.' '.Auth::user()->last_name}}</div>
                     <div class="email"> {{ Auth::user()->email}}</div>
-                    <div class="btn-group user-helper-dropdown">
-                        <i class="material-icons" data-toggle="dropdown" aria-haspopup="true" aria-expanded="true">keyboard_arrow_down</i>
-                        <ul class="dropdown-menu pull-right">
-                           
-                            <li><a href="javascript:void(0);"><i class="material-icons">group</i>Followers</a></li>
-                            <li role="separator" class="divider"></li>
-                            <li><a href="javascript:void(0);"><i class="material-icons">shopping_cart</i>Sales</a></li>
-                            <li role="separator" class="divider"></li>
-                            <li><a href="javascript:void(0);"><i class="material-icons">favorite</i>Likes</a></li>
-                            <li role="separator" class="divider"></li>
-                            <li><a href="javascript:void(0);"><i class="material-icons">input</i>Sign Out</a></li>
-                        </ul>
-                    </div>
+                   
                 </div>
             </div>
+
+            <div id="selectEmpresa" >
+                <span style="font-size:30px " id="nombre_empresa">
+                    @if( Session::has('id_empresa'))
+                                {{Session::get('nombre_empresa')}}
+                    @endif 
+                </span>
+                <div class="btn-group user-helper-dropdown pull-right">
+                <i class="material-icons" data-toggle="dropdown" aria-haspopup="true" aria-expanded="true">keyboard_arrow_down</i>
+                <ul class="dropdown-menu pull-right" id="listaEmpresa">
+                </ul>
+                </div>
+            </div>
+            
+            @if( Session::has('id_campanha'))
+            <div id='selectCampanha'>
+            @else
+            <div id='selectCampanha' style="display:none;">
+            @endif 
+            
+                <span style="font-size:20px " id="nombre_camp">
+                            @if( Session::has('id_campanha'))
+                                {{Session::get('nombre_campanha')}}
+                            @endif 
+                </span>
+                <div class="btn-group user-helper-dropdown pull-right">
+                   
+                <i class="material-icons" data-toggle="dropdown" aria-haspopup="true" aria-expanded="true">keyboard_arrow_down</i>
+                    <ul class="dropdown-menu pull-right" id="listaCampanha">
+                    </ul>
+                </div>
+            </div>
+            
+
+         
+  
             <!-- #User Info -->
             <!-- Menu -->
             <div class="menu">
                 <ul class="list">
-                    <li class="header">Navegacion Principal</li>
+                    
                     <li class="active">
                         <a href="index.html">
                             <i class="material-icons">home</i>
@@ -206,8 +233,8 @@
                         </a>
                         <ul class="ml-menu">
                             <li>
-                                <a href="javascript:void(0);">
-                                    <span>Agregar campaña</sspan>
+                                <a href="{{url('/campanha')}}">
+                                    <span>Ver campaña</sspan>
                                 </a>
                             </li>
                            
@@ -220,8 +247,8 @@
                         </a>
                         <ul class="ml-menu">
                             <li>
-                                <a href="javascript:void(0);">
-                                    <span>Agregar Empresa</sspan>
+                                <a href="{{url('/empresa')}}">
+                                    <span>Ver mis empresas</sspan>
                                 </a>
                             </li>
                            
@@ -263,30 +290,30 @@
     <script src="{{asset('mysystemdesign/plugins/bootstrap-select/js/bootstrap-select.js')}}"></script>
 
     <!-- Slimscroll Plugin Js -->
-    <script src="{{asset('mysystemdesign/plugins/jquery-slimscroll/jquery.slimscroll.js')}}"></script>
+    <!-- <script src="{{asset('mysystemdesign/plugins/jquery-slimscroll/jquery.slimscroll.js')}}"></script> -->
 
     <!-- Waves Effect Plugin Js -->
     <script src="{{asset('mysystemdesign/plugins/node-waves/waves.js')}}"></script>
 
     <!-- Jquery CountTo Plugin Js -->
-    <script src="{{asset('mysystemdesign/plugins/jquery-countto/jquery.countTo.js')}}"></script>
+    <!-- <script src="{{asset('mysystemdesign/plugins/jquery-countto/jquery.countTo.js')}}"></script> -->
 
     <!-- Morris Plugin Js -->
-    <script src="{{asset('mysystemdesign/plugins/raphael/raphael.min.js')}}"></script>
-    <script src="{{asset('mysystemdesign/plugins/morrisjs/morris.js')}}"></script>
+    <!-- <script src="{{asset('mysystemdesign/plugins/raphael/raphael.min.js')}}"></script> -->
+    <!-- <script src="{{asset('mysystemdesign/plugins/morrisjs/morris.js')}}"></script> -->
 
     <!-- ChartJs -->
-    <script src="{{asset('mysystemdesign/plugins/chartjs/Chart.bundle.js')}}"></script>
+    <!-- <script src="{{asset('mysystemdesign/plugins/chartjs/Chart.bundle.js')}}"></script> -->
 
     <!-- Flot Charts Plugin Js -->
-    <script src="{{asset('mysystemdesign/plugins/flot-charts/jquery.flot.js')}}"></script>
-    <script src="{{asset('mysystemdesign/plugins/flot-charts/jquery.flot.resize.js')}}"></script>
-    <script src="{{asset('mysystemdesign/plugins/flot-charts/jquery.flot.pie.js')}}"></script>
-    <script src="{{asset('mysystemdesign/plugins/flot-charts/jquery.flot.categories.js')}}"></script>
-    <script src="{{asset('mysystemdesign/plugins/flot-charts/jquery.flot.time.js')}}"></script>
+    <!-- <script src="{{asset('mysystemdesign/plugins/flot-charts/jquery.flot.js')}}"></script> -->
+    <!-- <script src="{{asset('mysystemdesign/plugins/flot-charts/jquery.flot.resize.js')}}"></script> -->
+    <!-- <script src="{{asset('mysystemdesign/plugins/flot-charts/jquery.flot.pie.js')}}"></script> -->
+    <!-- <script src="{{asset('mysystemdesign/plugins/flot-charts/jquery.flot.categories.js')}}"></script> -->
+    <!-- <script src="{{asset('mysystemdesign/plugins/flot-charts/jquery.flot.time.js')}}"></script> -->
 
     <!-- Sparkline Chart Plugin Js -->
-    <script src="{{asset('mysystemdesign/plugins/jquery-sparkline/jquery.sparkline.js')}}"></script>
+    <!-- <script src="{{asset('mysystemdesign/plugins/jquery-sparkline/jquery.sparkline.js')}}"></script> -->
 
     <!-- Custom Js -->
     <script src="{{asset('mysystemdesign/js/admin.js')}}"></script>
@@ -294,6 +321,9 @@
 
     <!-- Demo Js -->    
     <script src="{{asset('mysystemdesign/js/demo.js')}}"></script>
+    <script src="{{asset('js/config.js')}}"></script>
+
+    <script src="{{asset('js/admin.index.js')}}"></script>
 
     @section('scripts')
     @show

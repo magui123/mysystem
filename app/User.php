@@ -35,6 +35,7 @@ class User extends Authenticatable
     productos() ok
     campanhas() ok
     */
+
     public function empresas(){
         return $this->hasMany(UsuarioEmpresa::class,'id_usuario');
     }
@@ -47,8 +48,4 @@ class User extends Authenticatable
     public function campanhas(){
         return $this->hasMany(Campanha::class,'id_usuario');
     }
-
-
-
-
 }

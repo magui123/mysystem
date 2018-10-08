@@ -3,6 +3,8 @@
 namespace App\Http\Controllers;
 
 use App\Campanha;
+use Auth;
+use Session;
 use Illuminate\Http\Request;
 
 class CampanhaController extends Controller
@@ -13,8 +15,13 @@ class CampanhaController extends Controller
      * @return \Illuminate\Http\Response
      */
     public function index()
-    {
-        //
+    {   
+        if(Session::has('id_empresa')){
+            $campanhas = Campanha::where('id_usuario',Auth::user()->id)->where('id_empresa',Session::get('id_empresa'))->orderBy('nro_camp')->get();
+        }else{
+            $campanhas = Campanha::where('id_usuario',Auth::user()->id)->where('id_empresa',0)->orderBy('nro_camp')->get();
+        }
+        return view('campanha.index',compact('campanhas')); 
     }
 
     /**
@@ -24,7 +31,7 @@ class CampanhaController extends Controller
      */
     public function create()
     {
-        //
+        return view('campanha.create'); 
     }
 
     /**
@@ -35,7 +42,17 @@ class CampanhaController extends Controller
      */
     public function store(Request $request)
     {
-        //
+        $campanha = new Campanha;
+        $campanha->id_usuario = Auth::user()->id;
+        $campanha->id_empresa = Session::get('id_empresa');
+        $campanha->nro_camp = $request->nro_camp;
+        $campanha->nombre  = $request->nombre;
+        $campanha->detalle = $request->detalle.'';
+        $campanha->premios = $request->premios.'';
+        $campanha->save();
+        Session::flash('success','Campaña creada con éxito');
+        return view('campanha.create');
+      
     }
 
     /**
