@@ -18,7 +18,8 @@ class ClienteSeeder extends Seeder
             'procedencia' => 'familia',
             'whatsapp'=>0,
             'facebook'=>'leticia gutierrez',
-            'detalle' => 'le gusta las cremas antiarrugas y joyas',                
+            'detalle' => 'le gusta las cremas antiarrugas y joyas',   
+            'id_usuario' => 1,             
         ]);
         DB::table('clientes')->insert([
             'nombre' => 'Maria',
@@ -27,7 +28,8 @@ class ClienteSeeder extends Seeder
             'procedencia' => 'familia',
             'whatsapp'=>0,
             'facebook'=>'maria eugenia davila',
-            'detalle' => 'le gusta todo tipo de crema',                
+            'detalle' => 'le gusta todo tipo de crema',  
+            'id_usuario' => 1,              
         ]);
         DB::table('clientes')->insert([
             'nombre' => 'Yamil',
@@ -36,7 +38,8 @@ class ClienteSeeder extends Seeder
             'procedencia' => 'familia',
             'whatsapp'=>1,
             'facebook'=>'yamil Davila',
-            'detalle' => 'lle gusta los perfumes',                
+            'detalle' => 'lle gusta los perfumes', 
+            'id_usuario' => 1,               
         ]);
         DB::table('clientes')->insert([
             'nombre' => 'Magui',
@@ -45,7 +48,8 @@ class ClienteSeeder extends Seeder
             'procedencia' => 'novia',
             'whatsapp'=>1,
             'facebook'=>'magui davila gutierrez',
-            'detalle' => 'le gusta todo',                
+            'detalle' => 'le gusta todo',   
+            'id_usuario' => 1,             
         ]);
         DB::table('clientes')->insert([
             'nombre' => 'Nicole',
@@ -54,7 +58,8 @@ class ClienteSeeder extends Seeder
             'procedencia' => 'familia',
             'whatsapp'=>0,
             'facebook'=>'-',
-            'detalle' => 'le gusta los aretes pequeños',                
+            'detalle' => 'le gusta los aretes pequeños',    
+            'id_usuario' => 1,            
         ]);
         DB::table('clientes')->insert([
             'nombre' => 'Brayan',
@@ -63,7 +68,8 @@ class ClienteSeeder extends Seeder
             'procedencia' => 'hospital Vagio',
             'whatsapp'=>0,
             'facebook'=>'brayan davila',
-            'detalle' => 'dr. pediatra, le gusta los perfumes',                
+            'detalle' => 'dr. pediatra, le gusta los perfumes',      
+            'id_usuario' => 1,          
         ]);
         DB::table('clientes')->insert([
             'nombre' => 'Ana',
@@ -72,7 +78,8 @@ class ClienteSeeder extends Seeder
             'procedencia' => 'universidad',
             'whatsapp'=>0,
             'facebook'=>'anita gonzales',
-            'detalle' => 'le gusta maquillaje',                
+            'detalle' => 'le gusta maquillaje',    
+            'id_usuario' => 1,            
         ]);
         DB::table('clientes')->insert([
             'nombre' => 'Laura',
@@ -81,7 +88,8 @@ class ClienteSeeder extends Seeder
             'procedencia' => 'wally',
             'whatsapp'=>1,
             'facebook'=>'laura daniela',
-            'detalle' => 'le gustan las joyas',                
+            'detalle' => 'le gustan las joyas',   
+            'id_usuario' => 1,             
         ]);
         DB::table('clientes')->insert([
             'nombre' => 'Brenda',
@@ -90,7 +98,8 @@ class ClienteSeeder extends Seeder
             'procedencia' => 'piscina',
             'whatsapp'=>1,
             'facebook'=>'brenda MD',
-            'detalle' => 'le gustan las cremas corporales',                
+            'detalle' => 'le gustan las cremas corporales',  
+            'id_usuario' => 2,              
         ]);
     }
 }

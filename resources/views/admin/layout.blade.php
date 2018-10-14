@@ -91,6 +91,12 @@
                                 {{Session::get('nombre_campanha')}}
                             @endif
                             </strong>
+                            &nbsp;
+                            <strong id="nombre¨ProductoHead">
+                            @if( Session::has('id_producto'))
+                                {{Session::get('nombre_producto')}}
+                            @endif
+                            </strong>
                         </a>
                     </li>
                     <!-- #END# Call Search -->
@@ -186,8 +192,11 @@
                             <span>Productos</span>
                         </a>
                         <ul class="ml-menu">
-                        <li>
-                                <a href="pages/ui/alerts.html">Productos disponibles</a>
+                            <li>
+                                <a href="{{url('/producto/create')}}">Agregar productos</a>
+                            </li>
+                            <li>
+                                <a href="{{('/producto')}}">Productos disponibles</a>
                             </li>
                             <li>
                                 <a href="pages/ui/animations.html">Productos Entregados</a>
@@ -195,9 +204,6 @@
                             
                             <li>
                                 <a href="">Productos cancelados</a>
-                            </li>
-                            <li>
-                                <a href="">Productos vendido y no cancelados </a>
                             </li>
                             
                         </ul>
@@ -210,18 +216,19 @@
                         </a>
                         <ul class="ml-menu">
                             <li>
-                                <a href="pages/ui/alerts.html">Productos disponibles</a>
+                                <a href="{{url('/cliente/create')}}">Agregar cliente</a>
                             </li>
                             <li>
-                                <a href="pages/ui/animations.html">Productos Entregados</a>
+                                <a href="{{url('/cliente')}}">Lista de clientes</a>
+                            </li>
+                            <li>
+                                <a href="pages/ui/animations.html">Clientes pago al contado</a>
                             </li>
                             
                             <li>
-                                <a href="">Productos cancelados</a>
+                                <a href="">Clientes pago a Credito</a>
                             </li>
-                            <li>
-                                <a href="">Productos vendido </a>
-                            </li>
+                            
                         </ul>
                     </li>
                    
@@ -234,7 +241,7 @@
                         <ul class="ml-menu">
                             <li>
                                 <a href="{{url('/campanha')}}">
-                                    <span>Ver campaña</sspan>
+                                    <span>Ver campaña</span>
                                 </a>
                             </li>
                            
@@ -244,14 +251,14 @@
                         <a href="javascript:void(0);" class="menu-toggle">
                             <i class="material-icons">widgets</i>
                             <span>Empresa</span>
-                        </a>
-                        <ul class="ml-menu">
-                            <li>
-                                <a href="{{url('/empresa')}}">
-                                    <span>Ver mis empresas</sspan>
-                                </a>
-                            </li>
-                           
+                            </a>
+                                <ul class="ml-menu">
+                                <li>
+                                    <a href="{{url('/empresa')}}">
+                                    <span>Ver mis empresas</span>
+                                    </a>
+                                </li> 
+                          
                         </ul>
                     </li>
                    

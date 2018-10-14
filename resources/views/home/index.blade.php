@@ -17,7 +17,7 @@
 
      <nav class="navbar navbar-expand-lg navbar-light fixed-top" id="mainNav">
         <div class="container">
-        <a class="navbar-brand" href="index.html">Cuaderno de negocios</a>
+        <a class="navbar-brand" href="index.html">Mi Cuaderno de Negocios</a>
         <button class="navbar-toggler navbar-toggler-right" type="button" data-toggle="collapse" data-target="#navbarResponsive" aria-controls="navbarResponsive" aria-expanded="false" aria-label="Toggle navigation">
           Menu
           <i class="fas fa-bars"></i>
@@ -47,7 +47,7 @@
         <div class="row">
           <div class="col-lg-8 col-md-10 mx-auto">
             <div class="site-heading">
-              <h1>Cuaderno de Negocios</h1>
+              <h1>Mi Cuaderno de Negocios</h1>
               <span class="subheading">Controla tus negocios con esta aplicacion</span>
             </div>
           </div>
@@ -157,14 +157,14 @@
                  <div class="post-preview">
                         <a href="javascript:void(0)">
                         <h2 class="post-title">
-                            Margareth Dávila Gutierres
+                            Margareth Dávila Gutierrez
                         </h2>
                         <h3 class="post-subtitle">
-                            We predict too much for the next year and yet far too little for the next ten.
+                           Que tu negocio no te complique la vida
                         </h3>
                         </a>
                         <p class="post-meta">Celular
-                        <a href="#"> +700 77070</a>
+                        <a href="#"> 73715301</a>
                         La Paz - Bolivia, 2018</p>
                     </div>
              </div>

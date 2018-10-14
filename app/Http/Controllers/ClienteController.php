@@ -3,6 +3,8 @@
 namespace App\Http\Controllers;
 
 use App\Cliente;
+use Auth;
+use Session;
 use Illuminate\Http\Request;
 
 class ClienteController extends Controller
@@ -14,7 +16,12 @@ class ClienteController extends Controller
      */
     public function index()
     {
-        //
+        if(Session::has('id_usuario')){
+            $clientes = Cliente::where('id_usuario',Auth::user()->id)->orderBy('nombre')->get();
+        }else{
+            $clientes = Cliente::where('id_usuario',Auth::user()->id)->orderBy('nombre')->get();
+        }
+        return view('cliente.index',compact('clientes')); 
     }
 
     /**
@@ -24,7 +31,7 @@ class ClienteController extends Controller
      */
     public function create()
     {
-        //
+        return view('cliente.create'); 
     }
 
     /**
@@ -35,7 +42,18 @@ class ClienteController extends Controller
      */
     public function store(Request $request)
     {
-        //
+        $cliente = new Cliente;
+        $cliente->id_usuario = Auth::user()->id;
+        $cliente->nombre = $request->nombre;
+        $cliente->apellido  = $request->apellido;
+        $cliente->telefono = $request->telefono;
+        $cliente->procedencia = $request->procedencia.'';
+        $cliente->whatsapp = $request->whatsapp;
+        $cliente->facebook = $request->facebook.'';
+        $cliente->detalle = $request->detalle.'';
+        $cliente->save();
+        Session::flash('success','Cliente creado con exito!!!');
+        return view('cliente.create');
     }
 
     /**

@@ -22,6 +22,8 @@ class CreateClientesTable extends Migration
             $table->boolean('whatsapp');
             $table->string('facebook',50);
             $table->string('detalle',200);
+            $table->unsignedInteger('id_usuario');
+            $table->foreign('id_usuario')->references('id')->on('users');
             $table->timestamps();
         });
     }

@@ -13,7 +13,7 @@ class CampanhaSeeder extends Seeder
     {
         DB::table('campanhas')->insert([
             'nombre' => 'imperial',
-            'nro_camp' => 10,
+            'nro_camp' => 9,
             'detalle' => 'campaña 10',
             'premios' => 'juego de platos y vasos',
             'id_usuario'=>1,

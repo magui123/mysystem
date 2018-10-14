@@ -3,6 +3,8 @@
 namespace App\Http\Controllers;
 
 use App\Producto;
+use Auth;
+use Session;
 use Illuminate\Http\Request;
 
 class ProductoController extends Controller
@@ -14,7 +16,12 @@ class ProductoController extends Controller
      */
     public function index()
     {
-        //
+        if(Session::has('id_empresa')){
+            $productos = Producto::where('id_usuario',Auth::user()->id)->where('id_empresa',Session::get('id_empresa'))->orderBy('nombre')->get();
+        }else{
+            $productos = Producto::where('id_usuario',Auth::user()->id)->where('id_empresa',0)->orderBy('nombre')->get();
+        }
+        return view('producto.index',compact('productos')); 
     }
 
     /**
@@ -25,6 +32,7 @@ class ProductoController extends Controller
     public function create()
     {
         //
+        return view('producto.create'); 
     }
 
     /**
@@ -35,7 +43,15 @@ class ProductoController extends Controller
      */
     public function store(Request $request)
     {
-        //
+        $producto = new Producto;
+        $producto->id_usuario = Auth::user()->id;
+        $producto->id_empresa = Session::get('id_empresa');
+        $producto->nombre = $request->nombre;
+        $producto->descripcion  = $request->descripcion.'';
+        $producto->codigo = $request->codigo;
+        $producto->save();
+        Session::flash('success','Producto creada con éxito');
+        return view('producto.create');
     }
 
     /**
