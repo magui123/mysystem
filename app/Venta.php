@@ -11,12 +11,12 @@ class Venta extends Model
         return $this->belongsTo(Cliente::class,'id_cliente');
     }
    
-    public function productos(){
-        return $this->hasMany(Producto::class,'id');
+    public function producto(){
+        return $this->belongsTo(Producto::class,'id_producto');
     }
 
     public function campanhas(){
-        return $this->hasMany(Campanha::class,'id');
+        return $this->belongsTo(Campanha::class,'id_campanha');
     }
     public function pagos(){
         return $this->hasMany(Pago::class,'id_venta');

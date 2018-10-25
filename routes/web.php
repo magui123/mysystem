@@ -27,10 +27,6 @@ Route::get('/admin/camp','AdminController@camp');
 
 
 Route::resource('/empresa','EmpresaController');
-
-
-
-
 Route::resource('/campanha','CampanhaController');
 Route::resource('/cliente','ClienteController');
 Route::resource('/pago','PagoController');
@@ -39,5 +35,8 @@ Route::resource('/usuarioempresa','UsuarioEmpresaController');
 Route::resource('/venta','VentaController');
 
 
+Route::get('/v/{id}','VentaController@ventas');
+Route::get('/vproducto/{id}','VentaController@vproducto');
+Route::post('/vproductonew/{id}','VentaController@vproductonew');
 
 

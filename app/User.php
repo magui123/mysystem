@@ -46,7 +46,7 @@ class User extends Authenticatable
     }
 
     public function campanhas(){
-        return $this->hasMany(Campanha::class,'id_usuario');
+            return $this->hasMany(Campanha::class,'id_usuario');
     }
     public function clientes(){
         return $this->hasMany(Cliente::class,'id_usuario');

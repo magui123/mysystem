@@ -17,12 +17,12 @@ class CreateVentasTable extends Migration
             $table->increments('id');
             $table->double('precio_compra');
             $table->double('precio_publico');
-            $table->double('precio_venta');
-            $table->tinyInteger('tipo_pago');
-            $table->string('tipo_pago_desc',20);
+            $table->double('precio_venta')->nullable();
+            $table->tinyInteger('tipo_pago')->nullable();
+            $table->string('tipo_pago_desc',20)->nullable();
             $table->unsignedInteger('id_producto');
             $table->unsignedInteger('id_campanha');
-            $table->unsignedInteger('id_cliente');
+            $table->unsignedInteger('id_cliente')->nullable();
             $table->foreign('id_producto')->references('id')->on('productos');
             $table->foreign('id_campanha')->references('id')->on('campanhas');
             $table->foreign('id_cliente')->references('id')->on('clientes');

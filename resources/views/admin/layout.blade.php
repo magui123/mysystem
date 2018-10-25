@@ -152,11 +152,11 @@
                 </div>
             </div>
             
-            @if( Session::has('id_campanha'))
-            <div id='selectCampanha'>
-            @else
-            <div id='selectCampanha' style="display:none;">
-            @endif 
+                @if( Session::has('id_campanha'))
+                <div id='selectCampanha' style="display:none">
+                @else
+                <div id='selectCampanha' style="display:none;">
+                @endif 
             
                 <span style="font-size:20px " id="nombre_camp">
                             @if( Session::has('id_campanha'))
@@ -186,6 +186,18 @@
                         </a>
                     </li>
 
+                    <li>
+                        <a href="javascript:void(0);" class="menu-toggle">
+                            <i class="material-icons">swap_calls</i>
+                            <span>Ventas</span>
+                        </a>
+                        <ul class="ml-menu">    
+                            <li>
+                                <a href="{{('/venta')}}">Productos a la venta</a>
+                            </li>
+                        
+                        </ul>
+                    </li>
                      <li>
                         <a href="javascript:void(0);" class="menu-toggle">
                             <i class="material-icons">swap_calls</i>
@@ -331,6 +343,9 @@
     <script src="{{asset('js/config.js')}}"></script>
 
     <script src="{{asset('js/admin.index.js')}}"></script>
+    <script src="{{asset('js/msj.js')}}"></script>
+
+
 
     @section('scripts')
     @show
