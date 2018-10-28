@@ -54,14 +54,13 @@
                         </div>
                     </form>
                 </div>
+                <div class="footer">
+                    <div class="row"><div class="col-lg-12"><a href="{{url('venta')}}" class="btn btn-primary"> Ir a la lista</a></div></div> 
+                </div>               
             </div>
         </div>
     </div>
 
-
- <button class="btn btn-primary"><i class="material-icons">attach_money</i></button>
- <button class="btn btn-primary"><i class="material-icons">mode_edit</i></button>
- <button class="btn btn-primary"><i class="material-icons">delete</i></button>
  
     
 @endsection

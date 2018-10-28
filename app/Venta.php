@@ -21,4 +21,8 @@ class Venta extends Model
     public function pagos(){
         return $this->hasMany(Pago::class,'id_venta');
     }
+
+    public function saldo(){
+        return $this->precio_venta - $this->pagos->sum('acuenta');
+    }
 }

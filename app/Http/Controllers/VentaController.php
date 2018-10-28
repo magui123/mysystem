@@ -127,6 +127,7 @@ class VentaController extends Controller
                         ->with('ventas.producto')
                         ->with('ventas.cliente')
                         ->with('ventas.pagos')
+                       // ->with('ventas.saldo')
                         ->get();
             return response()->json($campanhas->toArray());
         }
@@ -155,11 +156,37 @@ class VentaController extends Controller
             $pago->saldo =  ( $r->tipo_pago == 0)? 0 :  (float) $r->precio_venta - (float)$r->a_cuenta;
             $pago->id_venta = $venta->id;
             $pago->save();
-            
             return response()->json(['msj'=>'success','text'=>'Producto vendido']);
         }
         return response()->json(['msj'=>'warning','text'=>'Producto ya vendido a otra persona']);
     }
 
-    
+    public function vpago($id){
+        $venta    = Venta::find($id);   
+        $clientes = Auth::user()->clientes()->orderBy('apellido')->orderBy('nombre')->get();
+        $pagos = $venta->pagos()->get();
+        return view('venta.vpago',compact('clientes','venta','pagos'));  
+    }
+
+    public function vpagonew(Request $r,$id){
+        $venta    = Venta::find($id);   
+        $pago = new Pago;
+        $pago->acuenta = $r->a_cuenta;
+        $pago->saldo =  $venta->saldo() - $r->a_cuenta;
+        $pago->id_venta = $venta->id;
+        $pago->save();
+        $pagos = $venta->pagos()->get();
+        return response()->json([
+            'msj'=>'success',
+            'text'=>'Pago realizado: '.$r->a_cuenta.' bs',
+            'pagos'=> $pagos,
+            'saldo'=> $venta->saldo() - $r->a_cuenta
+        ]);
+    }
+
+    public function vresumen($id){
+        $venta    = Venta::find($id);
+        $clientes = Auth::user()->clientes()->orderBy('apellido')->orderBy('nombre')->get();
+        return view('venta.vresumen',compact('clientes','venta'));
+    }
 }

@@ -39,4 +39,9 @@ Route::get('/v/{id}','VentaController@ventas');
 Route::get('/vproducto/{id}','VentaController@vproducto');
 Route::post('/vproductonew/{id}','VentaController@vproductonew');
 
+Route::get('/vpago/{id}','VentaController@vpago');
+Route::post('/vpago/{id}','VentaController@vpagonew');
+
+Route::get('/vresumen/{id}','VentaController@vresumen');
+Route::post('/vresumen/{id}','VentaController@vresumennew');
 
