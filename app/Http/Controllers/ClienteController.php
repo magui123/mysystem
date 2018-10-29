@@ -115,6 +115,7 @@ class ClienteController extends Controller
         and c.id = v.id_cliente
         ) AS tmp
         group by 1,2,3
+        having sum(saldo) > 0
         order by 2,3
         "));
 

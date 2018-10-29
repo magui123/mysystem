@@ -35,7 +35,7 @@
                         </tbody>
                         </table>
                         <div class="form-group">
-                            <a href="{{url('cliente/create')}}" class="btn btn-primary">Nuevo cliente</a>
+                            <!-- <a href="#" class="btn btn-primary">Nuevo cliente</a> -->
                                                            
                         </div>
                     </div>
