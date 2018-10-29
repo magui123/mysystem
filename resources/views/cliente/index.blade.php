@@ -32,11 +32,14 @@
                                 <td>{{$cliente->facebook}}</td>
                                 <td>{{$cliente->detalle}}</td>
                             </tr>
+                            {!!Link_to_route('cliente.edit',$title = 'Editar', $parameters = $cliente->id, $attributes = ['class'=>'btn btn-primary'])!!}
                             @endforeach
                         </tbody>
                         </table>
                         <div class="form-group">
                             <a href="{{url('cliente/create')}}" class="btn btn-primary">Nuevo cliente</a>
+                            
+                               
                         </div>
                     </div>
                 </div>
