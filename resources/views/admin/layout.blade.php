@@ -221,7 +221,7 @@
                         </ul>
                     </li>
 
-                     <li>
+                    <li>
                         <a href="javascript:void(0);" class="menu-toggle">
                             <i class="material-icons">supervisor_account</i>
                             <span>Clientes</span>
@@ -234,18 +234,14 @@
                                 <a href="{{url('/cliente')}}">Lista de clientes</a>
                             </li>
                             <li>
-                                <a href="pages/ui/animations.html">Clientes pago al contado</a>
+                                <a href="#">Clientes pago al contado</a>
                             </li>
-                            
                             <li>
-                                <a href="">Clientes pago a Credito</a>
-                            </li>
-                            
+                                <a href="{{url('/deudores')}}">Clientes deudores</a>
+                            </li>        
                         </ul>
                     </li>
-                   
-
-                     <li>
+                    <li>
                         <a href="javascript:void(0);" class="menu-toggle">
                             <i class="material-icons">widgets</i>
                             <span>Campaña</span>
@@ -255,8 +251,7 @@
                                 <a href="{{url('/campanha')}}">
                                     <span>Ver campaña</span>
                                 </a>
-                            </li>
-                           
+                            </li>       
                         </ul>
                     </li>
                     <li>
@@ -267,21 +262,16 @@
                                 <ul class="ml-menu">
                                 <li>
                                     <a href="{{url('/empresa')}}">
-                                    <span>Ver mis empresas</span>
+                                        <span>Ver mis empresas</span>
                                     </a>
-                                </li> 
-                          
+                                </li>       
                         </ul>
                     </li>
-                   
-               
                 </ul>
             </div>
             <!-- #Menu -->
             <!-- Footer -->
             <div class="legal">
-                
-               
             </div>
             <!-- #Footer -->
         </aside>

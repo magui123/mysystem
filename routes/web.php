@@ -45,3 +45,5 @@ Route::post('/vpago/{id}','VentaController@vpagonew');
 Route::get('/vresumen/{id}','VentaController@vresumen');
 Route::post('/vresumen/{id}','VentaController@vresumennew');
 
+Route::get('/deudores','ClienteController@deu');
+

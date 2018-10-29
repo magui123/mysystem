@@ -5,6 +5,7 @@ namespace App\Http\Controllers;
 use App\Cliente;
 use Auth;
 use Session;
+use DB;
 use Illuminate\Http\Request;
 
 class ClienteController extends Controller
@@ -99,5 +100,24 @@ class ClienteController extends Controller
     public function destroy(Cliente $cliente)
     {
         //
+    }
+
+    public function deu(){
+
+        $clientes = DB::select(DB::raw("
+        SELECT tmp.id,tmp.apellido, tmp.nombre,count(id_venta) as cantidad,sum(precio_venta) as t_venta, sum(acuenta) as t_cuenta,sum(saldo) as t_saldo
+        FROM(
+        SELECT c.id, c.apellido,c.nombre,v.id as 'id_venta',v.id_producto, 
+            (select sum(acuenta) from pagos where id_venta = v.id) as 'acuenta', v.precio_venta,
+            v.precio_venta - (select sum(acuenta) from pagos where id_venta = v.id) as 'saldo' 
+        FROM clientes as c , ventas as v
+        where c.id_usuario = ".Auth::user()->id."
+        and c.id = v.id_cliente
+        ) AS tmp
+        group by 1,2,3
+        order by 2,3
+        "));
+
+        return view('cliente.deu',compact('clientes'));
     }
 }
