@@ -1,14 +1,14 @@
 ﻿.theme-red .navbar {
-  background-color: #F44336; }
+  background-color: rgb(79, 44, 82); }
 
 .theme-red .navbar-brand {
   color: #fff; }
   .theme-red .navbar-brand:hover {
-    color: #fff; }
+    color: rgb(224, 224, 11); }
   .theme-red .navbar-brand:active {
-    color: #fff; }
+    color: rgb(8, 6, 6); }
   .theme-red .navbar-brand:focus {
-    color: #fff; }
+    color: rgb(31, 16, 16); }
 
 .theme-red .nav > li > a {
   color: #fff; }
@@ -30,7 +30,7 @@
 .theme-red .sidebar .menu .list li.active {
   background-color: transparent; }
   .theme-red .sidebar .menu .list li.active > :first-child i, .theme-red .sidebar .menu .list li.active > :first-child span {
-    color: #F44336; }
+    color: rgb(145, 12, 123); }
 
 .theme-red .sidebar .menu .list .toggled {
   background-color: transparent; }

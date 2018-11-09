@@ -208,15 +208,9 @@
                                 <a href="{{url('/producto/create')}}">Agregar productos</a>
                             </li>
                             <li>
-                                <a href="{{('/producto')}}">Productos disponibles</a>
-                            </li>
-                            <li>
-                                <a href="pages/ui/animations.html">Productos Entregados</a>
+                                <a href="{{('/producto')}}">Lista de productos</a>
                             </li>
                             
-                            <li>
-                                <a href="">Productos cancelados</a>
-                            </li>
                             
                         </ul>
                     </li>
@@ -232,9 +226,6 @@
                             </li>
                             <li>
                                 <a href="{{url('/cliente')}}">Lista de clientes</a>
-                            </li>
-                            <li>
-                                <a href="#">Clientes pago al contado</a>
                             </li>
                             <li>
                                 <a href="{{url('/deudores')}}">Clientes deudores</a>

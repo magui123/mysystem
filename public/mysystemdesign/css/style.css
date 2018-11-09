@@ -1,7 +1,7 @@
 ﻿/* Navbar ====================================== */
 @import url(materialize.css);
 .navbar {
-  font-family: "Roboto", sans-serif;
+  font-family: "Croissant One", sans-serif;
   -webkit-border-radius: 0;
   -moz-border-radius: 0;
   -ms-border-radius: 0;
@@ -26,7 +26,7 @@
     float: right; }
   .navbar .navbar-toggle {
     text-decoration: none;
-    color: #fff;
+    color: rgb(14, 13, 13);
     width: 20px;
     height: 20px;
     margin-top: -4px;
@@ -125,7 +125,7 @@
 .col-red .navbar .navbar-brand:hover,
 .col-red .navbar .navbar-brand:active,
 .col-red .navbar .navbar-brand:focus {
-  color: #fff; }
+  color: rgb(0, 0, 0); }
 
 .col-red .navbar .nav > li > a:hover,
 .col-red .navbar .nav > li > a:focus,
@@ -135,13 +135,13 @@
   background-color: rgba(0, 0, 0, 0.05); }
 
 .col-red .navbar .nav > li > a {
-  color: #fff; }
+  color: rgb(2, 1, 1); }
 
 .col-red .navbar .bars {
   float: left;
   padding: 10px 20px;
   font-size: 22px;
-  color: #fff;
+  color: rgb(7, 5, 5);
   margin-right: 10px;
   margin-left: -10px;
   margin-top: 4px; }
@@ -7541,7 +7541,7 @@ fieldset[disabled] .form-control {
         overflow: hidden;
         font-size: 14px;
         max-width: 200px;
-        color: #fff; }
+        color: rgb(45, 13, 53); }
       .sidebar .user-info .info-container .email {
         white-space: nowrap;
         -ms-text-overflow: ellipsis;
@@ -7550,7 +7550,7 @@ fieldset[disabled] .form-control {
         overflow: hidden;
         font-size: 12px;
         max-width: 200px;
-        color: #fff; }
+        color: rgb(56, 9, 9); }
       .sidebar .user-info .info-container .user-helper-dropdown {
         position: absolute;
         right: -3px;
